@@ -7,6 +7,7 @@ This project demonstrates the implementation of an <strong>AWS Virtual Private C
 </p>
 
 <h2> 🔹 VPC Architecture </h2>
+![VPC Architecture](https://docs.aws.amazon.com/images/vpc/latest/userguide/images/subnet-diagram.png)
 
 <h3> 1️⃣ Public Subnet </h3>
 <ul>
