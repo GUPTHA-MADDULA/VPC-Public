@@ -41,35 +41,6 @@ This project demonstrates the implementation of an <strong>AWS Virtual Private C
     <li> These instances are accessible from the internet, which is useful for web servers, APIs, or publicly facing applications. </li>
 </ul>
 
-<h2> 🚀 Deployment Steps </h2>
-
-<h3> 1️⃣ Create a VPC </h3>
-<pre>
-aws ec2 create-vpc --cidr-block 10.0.0.0/16
-</pre>
-
-<h3> 2️⃣ Create a Public Subnet </h3>
-<pre>
-aws ec2 create-subnet --vpc-id vpc-12345678 --cidr-block 10.0.1.0/24 --availability-zone us-east-1a
-</pre>
-
-<h3> 3️⃣ Attach Internet Gateway </h3>
-<pre>
-aws ec2 create-internet-gateway
-aws ec2 attach-internet-gateway --internet-gateway-id igw-12345678 --vpc-id vpc-12345678
-</pre>
-
-<h3> 4️⃣ Configure Route Table </h3>
-<pre>
-aws ec2 create-route-table --vpc-id vpc-12345678
-aws ec2 create-route --route-table-id rtb-12345678 --destination-cidr-block 0.0.0.0/0 --gateway-id igw-12345678
-aws ec2 associate-route-table --route-table-id rtb-12345678 --subnet-id subnet-12345678
-</pre>
-
-<h3> 5️⃣ Launch EC2 Instances in Public Subnet </h3>
-<pre>
-aws ec2 run-instances --image-id ami-12345678 --count 1 --instance-type t2.micro --subnet-id subnet-12345678 --key-name my-key
-</pre>
 
 <h2> 🔒 Security Best Practices </h2>
 <ul>
@@ -84,9 +55,4 @@ aws ec2 run-instances --image-id ami-12345678 --count 1 --instance-type t2.micro
     <li> Set up Auto Scaling for better handling of varying web traffic loads. </li>
     <li> Implement CloudWatch for monitoring and alerting on resource health and performance. </li>
 </ul>
-
-<h2> 📌 Conclusion </h2>
-<p>
-This project showcases the implementation of a <strong>public subnet architecture</strong> in AWS, facilitating the deployment of secure, scalable, and internet-facing resources. By following this guide, you can set up a VPC with a public subnet that meets the needs of hosting web applications or APIs.
-</p>
 
